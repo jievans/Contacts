@@ -20,7 +20,7 @@ puts "\nTest for the users#index"
 p RestClient.get("http://localhost:3000/users")
 
 puts "\nTest for the users#show"
-p RestClient.get("http://localhost:3000/users/5")
+p RestClient.get("http://localhost:3000/users/2")
 
 puts "\nTest for the users#create"
 p RestClient.post("http://localhost:3000/users",
@@ -38,3 +38,46 @@ p RestClient.put("http://localhost:3000/users/4",
 
 puts "\nTest for the users#destroy"
 p RestClient.delete("http://localhost:3000/users/7")
+
+#=============================================================
+
+# puts "\nTest for the contacts#create"
+# p RestClient.post("http://localhost:3000/contacts",
+#   {:contact => {:name => "Bob",
+#     :email => "Bob@hotmail.com",
+#     :phone_number => "815-555-8541",
+#     :address => "123 Fake St",
+#     :user_id => 1}})
+#
+# p RestClient.post("http://localhost:3000/contacts",
+#   {:contact => {:name => "Sally",
+#     :email => "Sally@hotmail.com",
+#     :phone_number => "200-555-5309",
+#     :address => "1742 Evergreen Terrace",
+#     :user_id => 1}})
+#
+# p RestClient.post("http://localhost:3000/contacts",
+#   {:contact => {:name => "Tommy",
+#     :email => "Tommy@yahoo.com",
+#     :phone_number => "100-999-7777",
+#     :address => "1600 Pennsylvania Ave",
+#     :user_id => 2}})
+
+# puts "\nTest for the contacts#index"
+# p RestClient.get("http://localhost:3000/contacts")
+#
+# puts "\nTest for the contacts#show"
+# p RestClient.get("http://localhost:3000/contacts/2")
+
+# puts "\nTest for the contacts#new"
+# p RestClient.get("http://localhost:3000/contacts/new")
+#
+# puts "\nTest for the contacts#edit"
+# p RestClient.get("http://localhost:3000/contacts/4/edit")
+#
+# puts "\nTest for the contacts#update"
+# p RestClient.put("http://localhost:3000/contacts/3",
+#   {:contact => {:address => "1400 Vermont Ave"} })
+#
+# puts "\nTest for the contacts#destroy"
+# p RestClient.delete("http://localhost:3000/contacts/3")

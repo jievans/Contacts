@@ -1,20 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def self_class_sym
-    (self.class).to_s.downcase.to_sym
-  end
-
   def index
-    render :json => (self.class).all
+    render :json => my_class.all
   end
 
   def show
-    render :json => (self.class).find(params[:id])
+    render :json => my_class.find(params[:id])
   end
 
   def create
-    me = (self.class).new(params[self_class_sym])
+    me = my_class.new(params[self_class_sym])
     if me.save
       render :json => me
       # redirect_to user_url(user)
@@ -33,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def update
     begin
-      me = (self.class).find(params[:id])
+      me = my_class.find(params[:id])
       me.update_attributes!(params[self_class_sym])
       render :json => me
       # redirect_to user_url(user)
@@ -44,7 +40,7 @@ class ApplicationController < ActionController::Base
 
   def destroy
     begin
-      (self.class).find(params[:id]).destroy
+      my_class.find(params[:id]).destroy
       render :text => "(self.class) #{params[:id]} destroyed"
     rescue => e
       render :text => e.message

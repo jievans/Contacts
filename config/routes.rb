@@ -3,7 +3,7 @@ ContactsApp::Application.routes.draw do
     resources :contacts, :only => [:index]
   end
 
-  resources :contacts, :except => [:index]
+  resources :contacts#, :except => [:index]
 
 
   # The priority is based upon order of creation:
