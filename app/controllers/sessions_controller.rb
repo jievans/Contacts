@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
-  skip_before_filter :verify_logged, :only => [:create]
-  skip_before_filter :authorize_user
+  # skip_before_filter :verify_logged, :only => [:create]
+  # skip_before_filter :authorize_user
 
   def create
     user = User.find_by_username(params[:username])

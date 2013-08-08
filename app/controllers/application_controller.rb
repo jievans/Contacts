@@ -6,10 +6,16 @@ class ApplicationController < ActionController::Base
 
 
   def authorize_user
+    puts authorize_helper
+    authorize_helper
+  end
+
+  def authorize_helper
     return false unless logged_in?
     if params.keys.include?("user_id")
       current_user.id == params[:user_id]
-    elsif params[self_class_sym].keys.include?("user_id")
+    elsif params.keys.include?(self_class_sym) &&
+    params[self_class_sym].keys.include?("user_id")
       current_user.id == params[self_class_sym]["user_id"]
     elsif params.keys.include?("id")
       current_user.id == params["id"]

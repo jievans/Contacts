@@ -63,8 +63,7 @@ require 'rest-client'
 #     :address => "1600 Pennsylvania Ave",
 #     :user_id => 2}})
 
-# puts "\nTest for the contacts#index"
-# p RestClient.get("http://localhost:3000/contacts")
+#p RestClient.get("http://localhost:3000/users/5")
 #
 # puts "\nTest for the contacts#show"
 # p RestClient.get("http://localhost:3000/contacts/2")
@@ -91,11 +90,14 @@ require 'rest-client'
  #     :address => "1600 Pennsylvania Ave",
  #     :user_id => 2}})
 
-puts "\n Tests for nested routes"
+# puts "\n Tests for nested routes"
+#
+# puts "\nTest for the contacts#index"
+# p RestClient.get("http://localhost:3000/users/1/contacts")
+#
+# puts "\nTest for the contacts#show"
+# p RestClient.get("http://localhost:3000/users/1/contacts/2")
 
-puts "\nTest for the contacts#index"
-p RestClient.get("http://localhost:3000/users/1/contacts")
+# p RestClient.post("http://localhost:3000/session",{username:"Vito", password:"swordfish"})
 
-puts "\nTest for the contacts#show"
-p RestClient.get("http://localhost:3000/users/1/contacts/2")
-
+p RestClient.get("http://localhost:3000/users/1?token=38801629049eadc35dc235065f1c85fa")
