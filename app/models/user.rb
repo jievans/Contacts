@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :password_hash, :presence => true
 
   def password=(secret_str)
-     self.password_hash = pw_hash(secret_str)
+     self.password_hash = User.pw_hash(secret_str)
   end
 
   has_many :contacts,
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     :through => :favorites,
     :source => :contact
 
-  def pw_hash(pw)
+  def self.pw_hash(pw)
     return nil if pw.nil?
     puts "pw is #{pw.object_id}"
     a = 0
@@ -36,5 +36,15 @@ class User < ActiveRecord::Base
   # def make_hash
   #   self.password_hash = pw_hash(password)
   # end
+
+  def login
+    self.assign_token
+  end
+
+
+  def assign_token
+    self.token = SecureRandom.hex
+    self.save!
+  end
 
 end

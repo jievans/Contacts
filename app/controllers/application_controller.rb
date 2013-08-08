@@ -1,6 +1,38 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :verify_logged
+  before_filter :authorize_user
+
+
+  def authorize_user
+    return false unless logged_in?
+    if params.keys.include?("user_id")
+      current_user.id == params[:user_id]
+    elsif params[self_class_sym].keys.include?("user_id")
+      current_user.id == params[self_class_sym]["user_id"]
+    elsif params.keys.include?("id")
+      current_user.id == params["id"]
+    else
+      false
+    end
+  end
+
+
+  def current_user
+    @current_user ||= User.find_by_token(params[:token])
+  end
+
+  def verify_logged
+    unless logged_in?
+      render :text => "You gotta login buddy."
+    end
+  end
+
+  def logged_in?
+    !!current_user
+  end
+
   def index
     render :json => my_class.all
   end

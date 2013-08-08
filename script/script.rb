@@ -16,28 +16,28 @@ require 'rest-client'
 
 #p RestClient.post(url,{"user"  => {"name" => "dan"}} )
 #p "\n"
-puts "\nTest for the users#index"
-p RestClient.get("http://localhost:3000/users")
-
-puts "\nTest for the users#show"
-p RestClient.get("http://localhost:3000/users/2")
-
-puts "\nTest for the users#create"
-p RestClient.post("http://localhost:3000/users",
-  {:user => {:username => "Ned", :password => "gizmo"}})
-
-puts "\nTest for the users#new"
-p RestClient.get("http://localhost:3000/users/new")
-
-puts "\nTest for the users#edit"
-p RestClient.get("http://localhost:3000/users/4/edit")
-
-puts "\nTest for the users#update"
-p RestClient.put("http://localhost:3000/users/4",
-  {:user => {:username => "John", :password => "cat"} })
-
-puts "\nTest for the users#destroy"
-p RestClient.delete("http://localhost:3000/users/7")
+# puts "\nTest for the users#index"
+# p RestClient.get("http://localhost:3000/users")
+#
+# puts "\nTest for the users#show"
+# p RestClient.get("http://localhost:3000/users/2")
+#
+# puts "\nTest for the users#create"
+# p RestClient.post("http://localhost:3000/users",
+#   {:user => {:username => "Ned", :password => "gizmo"}})
+#
+# puts "\nTest for the users#new"
+# p RestClient.get("http://localhost:3000/users/new")
+#
+# puts "\nTest for the users#edit"
+# p RestClient.get("http://localhost:3000/users/4/edit")
+#
+# puts "\nTest for the users#update"
+# p RestClient.put("http://localhost:3000/users/4",
+#   {:user => {:username => "John", :password => "cat"} })
+#
+# puts "\nTest for the users#destroy"
+# p RestClient.delete("http://localhost:3000/users/7")
 
 #=============================================================
 
@@ -68,7 +68,7 @@ p RestClient.delete("http://localhost:3000/users/7")
 #
 # puts "\nTest for the contacts#show"
 # p RestClient.get("http://localhost:3000/contacts/2")
-
+#
 # puts "\nTest for the contacts#new"
 # p RestClient.get("http://localhost:3000/contacts/new")
 #
@@ -81,3 +81,21 @@ p RestClient.delete("http://localhost:3000/users/7")
 #
 # puts "\nTest for the contacts#destroy"
 # p RestClient.delete("http://localhost:3000/contacts/3")
+
+#===================================================
+
+ # p RestClient.post("http://localhost:3000/contacts",
+ #   {:contact => {:name => "FRED WHOSE NAME STANDS OUT",
+ #     :email => "Tommy@yahoo.com",
+ #     :phone_number => "100-999-7777",
+ #     :address => "1600 Pennsylvania Ave",
+ #     :user_id => 2}})
+
+puts "\n Tests for nested routes"
+
+puts "\nTest for the contacts#index"
+p RestClient.get("http://localhost:3000/users/1/contacts")
+
+puts "\nTest for the contacts#show"
+p RestClient.get("http://localhost:3000/users/1/contacts/2")
+

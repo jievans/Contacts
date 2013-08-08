@@ -1,10 +1,13 @@
 ContactsApp::Application.routes.draw do
   resources :users do
     resources :contacts, :only => [:index]
+    resources :favorites, :only => [:index]
   end
 
-  resources :contacts#, :except => [:index]
+  resources :contacts, :except => [:index]
+  resources :favorites, :except => [:index]
 
+  resource :session
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
